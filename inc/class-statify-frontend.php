@@ -101,10 +101,9 @@ class Statify_Frontend extends Statify {
 
 			/*
 			 * Re-add AMP parameter to keep that information (only applicable for JS tracking).
-			 * We can assume "amp" to be the only parameter, as ${canonicalPath} already eliminates other queries.
 			 */
 			if ( $is_snippet && isset( $parsed_target['query'] ) && 'amp/' === $parsed_target['query'] ) {
-				$data['target'] .= '?amp';
+				add_query_arg( 'amp', '', $data['target'] );
 			}
 		}
 
