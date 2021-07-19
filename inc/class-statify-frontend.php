@@ -97,7 +97,7 @@ class Statify_Frontend extends Statify {
 		// Trim target URL, i.e. remove query parameters.
 		if ( $wp_rewrite->permalink_structure ) {
 			$parsed_target  = wp_parse_url( $data['target'] );
-			$data['target'] = $parsed_target['path'];
+			$data['target'] = isset( $parsed_target['path'] ) ? $parsed_target['path'] : null;
 
 			/*
 			 * Re-add AMP parameter to keep that information (only applicable for JS tracking).
